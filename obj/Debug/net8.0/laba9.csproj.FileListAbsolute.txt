@@ -1,0 +1,4 @@
+C:\Users\kalin\source\repos\laba9\obj\Debug\net8.0\laba9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kalin\source\repos\laba9\obj\Debug\net8.0\laba9.AssemblyInfoInputs.cache
+C:\Users\kalin\source\repos\laba9\obj\Debug\net8.0\laba9.AssemblyInfo.cs
+C:\Users\kalin\source\repos\laba9\obj\Debug\net8.0\laba9.csproj.CoreCompileInputs.cache
