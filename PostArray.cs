@@ -1,72 +1,84 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-public class PostArray
+namespace Labor._9
 {
-    // Массив постов
-    private Post[] posts;
-
-    // Конструктор без параметров (пустой массив)
-    public PostArray()
+    public class PostArray
     {
-        posts = new Post[0];
-    }
+        private Post[] arr;
 
-    // Конструктор с размером массива
-    public PostArray(int size)
-    {
-        posts = new Post[size];
-        for (int i = 0; i < size; i++)
+        public PostArray()
         {
-            posts[i] = CreateRandomPost();
+            arr = new Post[0];
         }
-    }
 
-    // Создание случайного поста
-    private Post CreateRandomPost()
-    {
-        Random random = new Random();
-        return new Post(random.Next(100, 1000), random.Next(1, 100), random.Next(1, 100));
-    }
-
-    // Добавление поста в массив
-    public void AddPost(Post post)
-    {
-        Array.Resize(ref posts, posts.Length + 1);
-        posts[posts.Length - 1] = post;
-    }
-
-    // Вывод всех постов из массива
-    public void DisplayPosts()
-    {
-        foreach (var post in posts)
+        public PostArray(int size)
         {
-            post.PrintInfo();
+            arr = new Post[size];
+            Random random = new Random();
+            for (int i = 0; i < size; i++)
+            {
+                arr[i] = new Post(random.Next(0, 1000), random.Next(0, 100), random.Next(0, 50));
+            }
         }
-    }
 
-    // Получение поста по индексу
-    public Post GetPost(int index)
-    {
-        if (index < 0 || index >= posts.Length)
+        public PostArray(PostArray other)
         {
-            throw new IndexOutOfRangeException("Индекс вне диапазона.");
+            arr = new Post[other.arr.Length];
+            for (int i = 0; i < other.arr.Length; i++)
+            {
+                arr[i] = new Post(other.arr[i]); // Глубокое копирование
+            }
         }
-        return posts[index];
-    }
 
-    // Замена поста по индексу
-    public void ReplacePost(int index, Post newPost)
-    {
-        if (index < 0 || index >= posts.Length)
+        public int Length
         {
-            throw new IndexOutOfRangeException("Индекс вне диапазона.");
+            get { return arr.Length; }
         }
-        posts[index] = newPost;
-    }
 
-    // Получение длины массива
-    public int GetLength()
-    {
-        return posts.Length;
+        public Post this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= arr.Length)
+                {
+                    throw new IndexOutOfRangeException("Индекс находится вне границ массива.");
+                }
+                return arr[index];
+            }
+            set
+            {
+                if (index < 0 || index >= arr.Length)
+                {
+                    throw new IndexOutOfRangeException("Индекс находится вне границ массива.");
+                }
+                arr[index] = value;
+            }
+        }
+
+        public void DisplayArray()
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write($"Элемент {i + 1}: ");
+                arr[i].DisplayPostInfo();
+            }
+        }
+
+        public double CalculateTotalEngagementRate()
+        {
+            if (arr.Length == 0) return 0;
+
+            double totalEngagementRate = 0;
+            foreach (Post post in arr)
+            {
+                totalEngagementRate += (double)post; // Использование неявного приведения к double
+            }
+            return Math.Round(totalEngagementRate / arr.Length, 2);
+        }
+
     }
 }

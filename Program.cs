@@ -1,57 +1,82 @@
-﻿
-internal class Program
+﻿using System;
+namespace Labor._9
 {
-    static void Main(string[] args)
+    internal class Program
     {
-        while (true)
+        static void Main(string[] args)
         {
-            Console.WriteLine("\nВыберите действие:");
-            Console.WriteLine("1 - Создать пустой пост");
-            Console.WriteLine("2 - Создать пост с параметрами");
-            Console.WriteLine("3 - Создать массив постов");
-            Console.WriteLine("4 - Вычислить общий коэффициент вовлечённости");
-            Console.WriteLine("5 - Выйти из программы");
-
-            string choice = Console.ReadLine();
-
-            switch (choice)
+            string msg = "";
+            while (msg != "11")
             {
-                case "1":
-                    Post emptyPost = MessageProcessing.CreateEmptyPost();
-                    Console.WriteLine("Пустой пост создан:");
-                    emptyPost.PrintInfo();
-                    break;
+                Console.WriteLine("Выберите действие:");
+                Console.WriteLine("1 - Создание Post по умолчанию");
+                Console.WriteLine("2 - Создание Post с параметрами");
+                Console.WriteLine("3 - Создание копии Post");
+                Console.WriteLine("4 - Демонстрация статической функции");
+                Console.WriteLine("5 - Демонстрация метода класса");
+                Console.WriteLine("6 - Демонстрация перегруженных операций");
+                Console.WriteLine("7 - Создание пустого массива PostArray");
+                Console.WriteLine("8 - Автоматическое создание массива PostArray");
+                Console.WriteLine("9 - Демонстрация индексатора PostArray");
+                Console.WriteLine("10 - Вычисление общего коэффициента вовлеченности");
+                Console.WriteLine("11 - Завершить выполнение программы");
 
-                case "2":
-                    Post customPost = MessageProcessing.CreatePostWithParameters();
-                    Console.WriteLine("Пост создан:");
-                    customPost.PrintInfo();
-                    break;
+                msg = Console.ReadLine();
 
-                case "3":
-                    Console.Write("Введите размер массива: ");
-                    int size = int.Parse(Console.ReadLine());
-                    PostArray array = MessageProcessing.CreatePostArray(size);
-                    Console.WriteLine("Массив постов создан:");
-                    array.DisplayPosts();
-                    break;
-
-                case "4":
-                    Console.Write("Введите размер массива: ");
-                    size = int.Parse(Console.ReadLine());
-                    array = MessageProcessing.CreatePostArray(size);
-                    double engagementRate = MessageProcessing.CalculateTotalEngagementRate(array);
-                    Console.WriteLine($"Общий коэффициент вовлечённости: {engagementRate:F2}%");
-                    break;
-
-                case "5":
-                    Console.WriteLine("Программа завершена.");
-                    return;
-
-                default:
-                    Console.WriteLine("Неверный выбор. Попробуйте снова.");
-                    break;
+                switch (msg)
+                {
+                    case "1":
+                        MessageHandler.CreateDefaultPost();
+                        Console.ReadLine();
+                        break;
+                    case "2":
+                        Post postWithParams = MessageHandler.CreatePostWithParams();
+                        postWithParams.DisplayPostInfo();
+                        Console.ReadLine();
+                        break;
+                    case "3":
+                        MessageHandler.CopyPost();
+                        Console.ReadLine();
+                        break;
+                    case "4":
+                        MessageHandler.DemonstrateStaticFunction();
+                        Console.ReadLine();
+                        break;
+                    case "5":
+                        MessageHandler.DemonstrateClassMethod();
+                        Console.ReadLine();
+                        break;
+                    case "6":
+                        MessageHandler.DemonstrateOverloadedOperators();
+                        Console.ReadLine();
+                        break;
+                    case "7":
+                        MessageHandler.CreateEmptyPostArray();
+                        Console.ReadLine();
+                        break;
+                    case "8":
+                        PostArray autoArray = MessageHandler.CreateAutoPostArray();
+                        autoArray.DisplayArray();
+                        Console.ReadLine();
+                        break;
+                    case "9":
+                        MessageHandler.DemonstrateIndexer();
+                        Console.ReadLine();
+                        break;
+                    case "10":
+                        PostArray engagementArray = MessageHandler.CreateAutoPostArray();
+                        MessageHandler.CalculateTotalEngagementRate(engagementArray);
+                        Console.ReadLine();
+                        break;
+                    case "11":
+                        break;
+                    default:
+                        Console.WriteLine("Неверный выбор. Попробуйте снова.");
+                        break;
+                }
             }
+
+            Console.WriteLine("Программа завершена.");
         }
     }
 }

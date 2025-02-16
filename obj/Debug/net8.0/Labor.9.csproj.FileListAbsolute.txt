@@ -1,0 +1,14 @@
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\Labor.9.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\Labor.9.AssemblyInfoInputs.cache
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\Labor.9.AssemblyInfo.cs
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\Labor.9.csproj.CoreCompileInputs.cache
+C:\Users\kalin\source\repos\Labor.9\bin\Debug\net8.0\Labor.9.exe
+C:\Users\kalin\source\repos\Labor.9\bin\Debug\net8.0\Labor.9.deps.json
+C:\Users\kalin\source\repos\Labor.9\bin\Debug\net8.0\Labor.9.runtimeconfig.json
+C:\Users\kalin\source\repos\Labor.9\bin\Debug\net8.0\Labor.9.dll
+C:\Users\kalin\source\repos\Labor.9\bin\Debug\net8.0\Labor.9.pdb
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\Labor.9.dll
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\refint\Labor.9.dll
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\Labor.9.pdb
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\Labor.9.genruntimeconfig.cache
+C:\Users\kalin\source\repos\Labor.9\obj\Debug\net8.0\ref\Labor.9.dll
